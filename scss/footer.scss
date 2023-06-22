@@ -1,0 +1,30 @@
+.footer {
+    padding-top: 60px;
+    position: relative;
+    z-index: 2;
+    background-color: #212121; /*так как это не section, а footer, надо цвет тут задать*/
+    &__container {
+        min-width: 100%; /*так как у этого блока нужно изменить свойство контейнера из main, то кажется это свойство тут можно оставить*/
+    }
+    &__block {
+        background-color: #292C36;
+        padding: 44px 0 32px;
+    }
+    &__title,
+    &__copyright {
+        text-align: center; /*Перенесено*/
+        font-weight: 700;
+        line-height: 1.5;
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+    &__title {
+        display: block; /*Добавлено*/
+        font-size: 32px;
+        margin: 0 0 8px;
+    }
+    &__copyright {
+        margin: 0;
+        font-size: 16px;
+    }
+}

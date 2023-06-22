@@ -1,0 +1,76 @@
+.header {
+    position: fixed;/* фиксированная сверху позиция */
+    left: 0;
+    top: 18px;
+    width: 100%;
+    z-index: 99;
+    &__container {
+        max-width: 1250px;
+    }
+    &__row {
+        display: flex; /* Мощный инструмент для размещения*/
+        align-items: center; /* Выравнивание элементов по оси Y */
+        justify-content: space-between; /* Выравнивание элементов по оси X */
+        position: relative;
+    }
+    &__logo {
+        display: flex; /* Чтобы высота картинки и текста не разъезжались*/
+        width: 105px;
+    }
+    &__barmenu {
+        display: none;
+        @media screen and (max-width: 992px) {
+            display: block;
+            width: 30px;
+            height: 30px;
+            -webkit-mask-image: url(../images/bars-solid.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            -webkit-mask-position: center;
+            background-color: #FFFFFF;
+            margin: 0; /*хотя у меня у этого блока нет ни маргинов, ни бордера*/
+            border: none;
+            &--active {
+                -webkit-mask-image: url(../images/x-solid.svg);
+            }
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    &__link {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        transition: 0.3s transform;
+        &:not(:last-child) { /* примени следующий стиль для всех кроме последнего */
+            margin-right: 30px;
+        };
+        &:hover {
+            transform: translateY(-10px);
+        }
+        @media screen and (max-width: 992px) {
+            font-size: 16px;
+            display: col;
+            &:not(:last-child) { /* примени следующий стиль для всех кроме последнего */
+                margin-right: 0;
+                margin-bottom: 10px
+            };
+        }
+    }
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+        position: absolute;
+        top: 40px;
+        left: 50%; /* смещает на 50% без учета длины самого смещаемого блока*/
+        transform: translateX(-50%) translateY(-200px); /* смещает на -50% от длины самого смещаемого блока по оси X (влево)*/
+        transition: 0.5s transform;
+        &--active {
+            transform: translateX(-50%); /* смещает на -50% от длины самого смещаемого блока по оси X (влево)*/
+        }
+    }
+}
